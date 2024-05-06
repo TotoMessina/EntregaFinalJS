@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda Entrega JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header id="miHeader">
+        <h1>facebook</h1>
+    </header>
+    <div id="formularioContainer">
+        <form id="miFormulario">
+            <h2>Bienvenido</h2>
+            <div class="form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" placeholder="Ingresa tu edad">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico">
+            </div>
+          
+            <button type="submit" id="enviarBtn" class="login-2">Entrar</button>
+        </form>
+    </div>
+      
+    <div id="contenidoOculto" style="display:none;">
+        <input type="text" id="mensajeInput" placeholder="Escribe un mensaje">
+<!--        <input type="file" id="fotoInput">  ESTO ES PARA SUBIR FOTOS EN UN FUTURO-->
+        <button id="subirMensajeBtn" class="login-2">Subir</button>
+        <div id="mensajesContainer">
+            
+        </div>
+    </div>
+    <script src="/scripts.js"></script>
+</body>
