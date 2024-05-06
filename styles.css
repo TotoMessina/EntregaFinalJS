@@ -11,11 +11,13 @@ header{
     font-style: normal;
     padding: 1% 0;
     padding-left: 5%;
+    max-width: 100%;
 }
 
 main{
     display: flex;
     justify-content: center;
+    max-width: 100%;
 }
 
 .login{
@@ -70,7 +72,91 @@ main{
     height: 50px;
 }
 
-p{
+#contenidoOculto {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+    max-width: 100%;
+}
+
+#mensajesContainer {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 50%;
+    margin-bottom: 90px;
+}
+
+#mensajesContainer p {
     border-top: solid 1px gray;
-    width: 200px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+#perfilContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1877f2;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer button{
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #1877f2;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.aviso{
+    color: #ffffff;
+    background-color: #FF0000;
+    margin-top: 5px;
+}
+
+.oculto {
+    display: none;
+  }
+  
+#carrito {
+    cursor: pointer;
+}
+  
+#carrito img{
+    height: auto;
+    width: 3em;
+}
+
+.tienda{
+    display: flex;
+    padding-top: 20px;
+}
+
+#productos{
+    width: 90%;
+    text-align: center;
+}
+
+#carrito{
+    width: 10%;
+    text-align: end;
+}
+
+.producto button{
+    border: none;
+    border-radius: 8px;
+    background-color: #1877f2;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: bold;
 }

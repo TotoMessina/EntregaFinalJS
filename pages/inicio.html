@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda Entrega JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Tu contenido HTML -->
+    <header id="miHeader">
+        <h1>facebook</h1>
+    </header>
+    <div id="contenidoOculto" style="display:none;">
+        <input type="text" id="mensajeInput" placeholder="Escribe un mensaje">
+        <button id="subirMensajeBtn" class="login-2">Subir</button>
+        <div id="mensajesContainer">
+            
+        </div>
+    </div>
+    <footer>
+        <button onclick="window.location.href = 'tienda.html';">Ir a la Marketplace</button>
+        <p class="aviso">Marketplace en proceso</p>
+    </footer>
+
+    <script src="/scripts.js"></script>
+    <script>
+        // Verificar si hay datos en el almacenamiento local al cargar la página
+        window.addEventListener('DOMContentLoaded', function() {
+            var nombre = localStorage.getItem('nombre');
+            var apellido = localStorage.getItem('apellido');
+            var edad = localStorage.getItem('edad');
+            var correo = localStorage.getItem('correo');
+
+            if (nombre && apellido && edad && correo) {
+                miHeader.innerHTML = 'Hola ' + nombre + ' ' + apellido + ', bienvenido a Facebook';
+                document.getElementById('contenidoOculto').style.display = 'block';
+            }
+        });
+    </script>
+</body>

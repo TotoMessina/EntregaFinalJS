@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Marketplace</h1>
+    </header>
+    <div class="tienda">
+        <div id="productos">
+            <div class="producto">
+                <h2>Producto 1</h2>
+                <img src="/img/foto-quesos.jpg" alt="fotoproducto">
+                <p>Precio: $10</p>
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Producto 1', 10)">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <h2>Producto 2</h2>
+                <img src="/img/foto-quesos.jpg" alt="fotoproducto">
+                <p>Precio: $15</p>
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Producto 2', 15)">Agregar al carrito</button>
+            </div>
+        </div>
+        <div id="carrito" onclick="mostrarCarrito()">
+            <img src="/img/carro-de-la-compra.png" alt="Carrito de compras">
+            <span id="cantidad-carrito">0</span>
+        </div>
+        <div id="productos-carrito" class="oculto"></div>
+    </div>
+
+    <script src="/tienda.js"></script>
+</body>
+</html>
