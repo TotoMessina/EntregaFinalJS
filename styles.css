@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
 }
 
-header{
+header {
     background-color: #1877f2;
     color: #ffffff;
     font-weight: 500;
@@ -14,13 +14,13 @@ header{
     max-width: 100%;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     max-width: 100%;
 }
 
-.login{
+.login {
     background-color: #1877f2;
     color: #ffffff;
     border: 0;
@@ -30,7 +30,7 @@ main{
     margin-top: 10%;
 }
 
-#miFormulario{
+#miFormulario {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,43 +39,49 @@ main{
     padding-top: 40px;
 }
 
-.form{
+.form {
     display: grid;
     grid-template-columns: repeat(2, 200px);
     justify-content: center;
     gap: 10px;
 }
 
-.bienvenido{
+.bienvenido {
     display: flex;
-    justify-content: center;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     padding: 5% 0;
 }
 
-.login-2{
-    background-color: #1877f2;
-    color: #ffffff;
-    border: 0;
-    width: 200px;
-    height: 50px;
-    border-radius: 150px;    
-}
-
-#contenidoOculto{
+.subidor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
     padding-top: 20px;
 }
 
-#mensajeInput{
+.login-2 {
+    background-color: #1877f2;
+    color: #ffffff;
+    border: 0;
+    padding: 5px 10px 0px 10px;
+    border-radius: 150px;    
+    margin-left: 5px;
+}
+
+#mensajeInput {
     border: solid 1px gray;
     width: 200px;
     height: 50px;
+    border-radius: 150px;
+    padding-left: 10px;
 }
 
 #contenidoOculto {
     display: none;
     text-align: center;
-    margin-top: 50px;
     max-width: 100%;
 }
 
@@ -92,7 +98,7 @@ main{
     word-wrap: break-word;
 }
 
-#perfilContainer{
+#perfilContainer {
     display: flex;
     flex-direction: column;
     max-width: 20%;
@@ -107,56 +113,117 @@ footer {
     background-color: #1877f2;
     padding: 10px 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-footer button{
+footer button {
     border: none;
-    border-radius: 8px;
-    background-color: #ffffff;
-    color: #1877f2;
-    padding: 10px;
+    border-radius: 150px;
+    background-color: #1877f2;
+    color: #ffffff;
+    padding: 5px 5px 0px 5px;
     font-weight: bold;
 }
 
-.aviso{
+.activo{
+    border: none;
+    border-radius: 150px;
+    background-color: #ffffff;
+    color: #1877f2;
+    padding: 5px 5px 0px 5px;
+    font-weight: bold;
+}
+
+button img {
+    width: 2em;
+    height: auto;
+}
+
+.aviso {
     color: #ffffff;
     background-color: #FF0000;
     margin-top: 5px;
 }
 
-.oculto {
-    display: none;
-  }
-  
 #carrito {
     cursor: pointer;
+    width: 10%;
+    text-align: center;
+    position: fixed;
+    right: 0;
 }
-  
-#carrito img{
+
+#productos-carrito {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    width: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none;
+}
+
+.oculto {
+    display: none;
+}
+
+#carrito img {
     height: auto;
     width: 3em;
 }
 
-.tienda{
+.tienda {
     display: flex;
     padding-top: 20px;
+    flex-wrap: wrap;
 }
 
-#productos{
+#productos {
     width: 90%;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: end;
+    gap: 10px;
 }
 
-#carrito{
-    width: 10%;
-    text-align: end;
+.producto {
+    align-self: center;
+    width: 50%;
+    margin: 1%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: auto;
 }
 
-.producto button{
+.image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto button {
     border: none;
     border-radius: 8px;
     background-color: #1877f2;
     color: #ffffff;
     padding: 10px;
     font-weight: bold;
+    width: 100%;
 }

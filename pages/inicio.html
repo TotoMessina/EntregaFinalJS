@@ -15,15 +15,18 @@
         <h1>facebook</h1>
     </header>
     <div id="contenidoOculto" style="display:none;">
-        <input type="text" id="mensajeInput" placeholder="Escribe un mensaje">
-        <button id="subirMensajeBtn" class="login-2">Subir</button>
+        <div class="subidor">
+            <input type="text" id="mensajeInput" placeholder="Escribe un mensaje">
+            <button id="subirMensajeBtn" class="login-2"><img src="/img/subida.png" alt="Subir"></button>
+        </div>
         <div id="mensajesContainer">
             
         </div>
     </div>
     <footer>
-        <button onclick="window.location.href = 'tienda.html';">Ir a la Marketplace</button>
-        <p class="aviso">Marketplace en proceso</p>
+        <button onclick="window.location.href = 'tienda.html';"><img src="/img/marketplace.png" alt="Carro Marketplace"></button>
+        <button onclick="window.location.href = 'inicio.html';" class="activo"><img src="/img/home-act.png" alt="Inicio"></button>
+        <button onclick="window.location.href = 'configuracion.html';"><img src="/img/menu.png" alt="Menu"></button>
     </footer>
 
     <script src="/scripts.js"></script>
