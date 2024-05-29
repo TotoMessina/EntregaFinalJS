@@ -15,6 +15,7 @@ header {
 }
 
 main {
+    padding-top: 80px;
     display: flex;
     justify-content: center;
     max-width: 100%;
@@ -122,18 +123,31 @@ footer button {
     border: none;
     border-radius: 150px;
     background-color: #1877f2;
-    color: #ffffff;
     padding: 5px 5px 0px 5px;
-    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+footer button :hover{
+    border: none;
+    border-radius: 150px;
+    background-color: #8db7ee;
+    transition: background-color 1s;
 }
 
 .activo{
     border: none;
     border-radius: 150px;
     background-color: #ffffff;
-    color: #1877f2;
     padding: 5px 5px 0px 5px;
-    font-weight: bold;
+    transition: background-color 1s;
+}
+
+.activo :hover{
+    border: none;
+    border-radius: 150px;
+    background-color: #ffffff;
+    transition: background-color 1s;
 }
 
 button img {
@@ -184,6 +198,23 @@ button img {
     padding-bottom: 60px;
 }
 
+.comprar-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #135ec0;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.comprar-btn:hover {
+    background-color: #145bb5;
+}
+
 #productos {
     width: 90%;
     text-align: center;
@@ -195,7 +226,7 @@ button img {
 
 .producto {
     align-self: center;
-    width: 90%;
+    width: 80%;
     margin: 1%;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -229,7 +260,6 @@ button img {
     width: 100%;
 }
 
-/* Temas */
 body.light {
     background-color: #ffffff;
     color: #000000;
@@ -333,3 +363,10 @@ body.dark #productos-carrito {
     display: flex;
     justify-content: space-between;
   }
+  .valoracion span {
+    cursor: pointer;
+}
+.mensaje {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}

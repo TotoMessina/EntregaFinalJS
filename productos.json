@@ -1,37 +1,44 @@
 [
     {
-        "nombre": "Producto 1",
-        "precio": 10,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 2",
-        "precio": 15,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 3",
-        "precio": 20,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 4",
-        "precio": 25,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 5",
-        "precio": 15,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 6",
-        "precio": 120,
-        "imagen": "/img/foto-quesos.jpg"
-    },
-    {
-        "nombre": "Producto 7",
+        "nombre": "LEGO ARCHITECTURE",
+        "descripcion": "Great Pyramid of Giza",
         "precio": 100,
-        "imagen": "/img/foto-quesos.jpg"
+        "imagen": "/img/producto1.png"
+    },
+    {
+        "nombre": "LEGO ARCHITECTURE",
+        "descripcion": "Himeji Castle",
+        "precio": 80,
+        "imagen": "/img/producto2.png"
+    },
+    {
+        "nombre": "LEGO MARVEL",
+        "descripcion": "Guardianes de la Galaxia: The New Guardians Ship",
+        "precio": 40,
+        "imagen": "/img/producto3.png"
+    },
+    {
+        "nombre": "CAMISETA DE FUTBOL",
+        "descripcion": "Camiseta titular del Real Madrid de la temporada 17-18",
+        "precio": 25,
+        "imagen": "/img/producto4.png"
+    },
+    {
+        "nombre": "CAMISETA DE FUTBOL",
+        "descripcion": "Camiseta terciaria del Manchester City de la temporada 23-23",
+        "precio": 20,
+        "imagen": "/img/producto5.png"
+    },
+    {
+        "nombre": "RELOJ ROLEX",
+        "descripcion": "Replica de Reloj Rolex AAA",
+        "precio": 200,
+        "imagen": "/img/producto6.png"
+    },
+    {
+        "nombre": "TECLADO GAMER",
+        "descripcion": "Teclado Gamer de la marca Logitech",
+        "precio": 200,
+        "imagen": "/img/producto7.png"
     }
 ]

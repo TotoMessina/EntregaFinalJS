@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="image-container">
               <img src="${producto.imagen}" alt="fotoproducto">
             </div>
-            <h2>${producto.nombre}</h2>
-            <p>Precio: $${producto.precio}</p>
+            <h3>${producto.nombre}</h3>
+            <h4>${producto.descripcion}</h4>
+            <p>${producto.precio} U$D</p>
             <button class="agregar-carrito" onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio})">Agregar al carrito</button>
           `;
 
@@ -70,7 +71,9 @@ function mostrarCarrito() {
       Object.entries(productosAcumulados).forEach(([producto, cantidad]) => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto-div');
-        productoDiv.textContent = `${producto} x${cantidad} - Precio: $${carrito.find(item => item.producto === producto).precio * cantidad}`;
+        const precioUnitario = carrito.find(item => item.producto === producto).precio;
+        const precioTotal = precioUnitario * cantidad;
+        productoDiv.textContent = `${producto} x${cantidad} - Precio: ${precioTotal} U$D`;
 
         const eliminarBtn = document.createElement('img');
         eliminarBtn.src = '/img/borrar.png';
@@ -84,6 +87,24 @@ function mostrarCarrito() {
         productosCarritoModal.appendChild(productoDiv);
       });
       mostrarBotonVaciar();
+
+      // Línea separadora
+      const separador = document.createElement('hr');
+      productosCarritoModal.appendChild(separador);
+
+      // Mostrar el total del gasto
+      const totalDiv = document.createElement('div');
+      totalDiv.classList.add('total-div');
+      const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      totalDiv.textContent = `Total: ${total.toFixed(2)} U$D`;
+      productosCarritoModal.appendChild(totalDiv);
+
+      // Agregar botón de compra
+      const comprarBtn = document.createElement('button');
+      comprarBtn.textContent = 'Comprar';
+      comprarBtn.classList.add('comprar-btn');
+      comprarBtn.addEventListener('click', aprobarPago);
+      productosCarritoModal.appendChild(comprarBtn);
     }
 
     modal.style.display = 'block';
@@ -144,4 +165,17 @@ function eliminarProducto(producto) {
   }
   mostrarCarrito();
   mostrarCantidadCarrito();
+}
+
+function aprobarPago() {
+  const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+  Swal.fire({
+    title: 'Compra realizada',
+    text: `¡Tu pago ha sido aprobado! Monto total: ${total.toFixed(2)} U$D`,
+    icon: 'success',
+    confirmButtonText: 'Aceptar'
+  });
+  carrito = []; // Vaciar el carrito después de la compra
+  mostrarCarrito(); // Actualizar el carrito visualmente
+  mostrarCantidadCarrito(); // Actualizar el contador del carrito
 }

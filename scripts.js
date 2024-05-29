@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     cargarMensajesAlmacenados();
     cargarConfiguracion();
+    cargarValoraciones();
 
     var miFormulario = document.getElementById('miFormulario');
     if (miFormulario) {
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var subirMensajeBtn = document.getElementById('subirMensajeBtn');
     if (subirMensajeBtn) {
         subirMensajeBtn.addEventListener('click', function() {
-            enviarMensaje();
+            enviarMensaje(); 
         });
     }
 
@@ -21,11 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var mensajeInput = document.getElementById('mensajeInput');
         if (event.key === 'Enter' && document.activeElement === mensajeInput) {
             event.preventDefault();
-            enviarMensaje();
+            enviarMensaje(); 
         }
     });
 
-    // Funciones existentes
     function enviarFormulario() {
         var nombre = document.getElementById('nombre').value;
         var apellido = document.getElementById('apellido').value;
@@ -64,28 +64,42 @@ document.addEventListener('DOMContentLoaded', function() {
         var apellido = localStorage.getItem('apellido');
         var edad = localStorage.getItem('edad');
         var correo = localStorage.getItem('correo');
-
+    
         var fechaHora = new Date(); 
         var fechaHoraFormato = fechaHora.toLocaleString(); 
-
+    
         var mensajeCompleto = '<span style="color: #1877f2; font-weight: bold;">' + nombre + ' ' + apellido + '</span><br><br>' + mensaje + '<br><span style="font-size: smaller; color: #888;">' + fechaHoraFormato + '</span>';
-
-        var mensajeElemento = document.createElement('p');
+    
+        var mensajeElemento = document.createElement('div');
+        mensajeElemento.classList.add('mensaje');
+    
         mensajeElemento.innerHTML = mensajeCompleto;
-
-        mensajeElemento.addEventListener('click', function() {
-            window.location.href = 'perfil.html?nombre=' + encodeURIComponent(nombre) + '&apellido=' + encodeURIComponent(apellido) + '&edad=' + encodeURIComponent(edad) + '&correo=' + encodeURIComponent(correo);
-        });
-
+    
+        var estrellas = document.createElement('div');
+        estrellas.classList.add('valoracion');
+        for (var i = 1; i <= 5; i++) {
+            var estrella = document.createElement('span');
+            estrella.innerHTML = '★';
+            estrella.dataset.valoracion = i;
+            estrella.addEventListener('click', function() {
+                valorarMensaje(this.dataset.valoracion, mensajeElemento);
+            });
+            estrella.style.color = '#d3d3d3'; 
+            estrella.classList.add('estrella'); 
+            estrellas.appendChild(estrella);
+        }
+    
+        mensajeElemento.appendChild(estrellas);
+    
         var mensajesContainer = document.getElementById('mensajesContainer');
-
+    
         if (mensajesContainer.firstChild) {
             mensajesContainer.insertBefore(mensajeElemento, mensajesContainer.firstChild);
         } else {
             mensajesContainer.appendChild(mensajeElemento);
         }
-    }
-
+    }     
+    
     function cargarMensajesAlmacenados() {
         var mensajesGuardados = JSON.parse(localStorage.getItem('mensajes'));
         var mensajesContainer = document.getElementById('mensajesContainer');
@@ -102,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('mensajes', JSON.stringify(mensajesGuardados));
     }
 
-    // Funciones nuevas para la página de configuración
     function cargarConfiguracion() {
         const nombre = localStorage.getItem('nombre') || '';
         const apellido = localStorage.getItem('apellido') || '';
@@ -139,3 +152,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.guardarConfiguracion = guardarConfiguracion;
 });
+
+function cargarValoraciones() {
+    var mensajesValorados = JSON.parse(localStorage.getItem('mensajesValorados')) || {};
+    var mensajes = document.querySelectorAll('.mensaje');
+    mensajes.forEach(function(mensajeElemento) {
+        var mensaje = mensajeElemento.querySelector('span').innerText.trim();
+        var valoracion = mensajesValorados[mensaje];
+        if (valoracion) {
+            aplicarColorEstrellas(mensajeElemento, valoracion);
+        }
+    });
+}
+
+function valorarMensaje(valoracion, mensajeElemento) {
+    aplicarColorEstrellas(mensajeElemento, valoracion);
+    var mensaje = mensajeElemento.querySelector('span').innerText.trim();
+    var mensajesValorados = JSON.parse(localStorage.getItem('mensajesValorados')) || {};
+    mensajesValorados[mensaje] = valoracion;
+    localStorage.setItem('mensajesValorados', JSON.stringify(mensajesValorados));
+    alert('Has valorado este mensaje con ' + valoracion + ' estrellas.');
+}
+
+function aplicarColorEstrellas(mensajeElemento, valoracion) {
+    var estrellas = mensajeElemento.querySelector('.valoracion').querySelectorAll('span');
+    for (var i = 0; i < estrellas.length; i++) {
+        if (i < valoracion) {
+            estrellas[i].style.color = '#ffd700';
+        } else {
+            estrellas[i].style.color = '#d3d3d3';
+        }
+    }
+}
