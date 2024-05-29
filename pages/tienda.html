@@ -5,24 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda Online</title>
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
-<body>
-    <header>
-        <h1>Marketplace</h1>
-    </header>
-    <div class="tienda">
-        <div id="productos"></div>
-        <div id="carrito" onclick="mostrarCarrito()">
-            <img src="/img/carro-de-la-compra.png" alt="Carrito de compras">
-            <span id="cantidad-carrito">0</span>
-        </div>
-        <div id="productos-carrito" class="oculto"></div>
+<body class="light">
+  <header>
+    <h1>Marketplace</h1>
+  </header>
+  <div class="tienda">
+    <div id="productos"></div>
+    <div id="carrito" onclick="mostrarCarrito()">
+      <img src="/img/carro-de-la-compra.png" alt="Carrito de compras">
+      <span id="cantidad-carrito">0</span>
     </div>
-    <footer>
-        <button onclick="window.location.href = 'tienda.html';" class="activo"><img src="/img/marketplace-act.png" alt="Carro Marketplace"></button>
-        <button onclick="window.location.href = 'inicio.html';"><img src="/img/home.png" alt="Inicio"></button>
-        <button onclick="window.location.href = 'configuracion.html';"><img src="/img/menu.png" alt="Menu"></button>
-    </footer>
-    <script src="/tienda.js"></script>
+    <div id="productos-carrito" class="oculto"></div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="productos-carrito-modal"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button onclick="window.location.href = 'tienda.html';" class="activo">
+      <img src="/img/marketplace-act.png" alt="Carro Marketplace">
+    </button>
+    <button onclick="window.location.href = 'inicio.html';">
+      <img src="/img/home.png" alt="Inicio">
+    </button>
+    <button onclick="window.location.href = 'configuracion.html';">
+      <img src="/img/menu.png" alt="Menu">
+    </button>
+  </footer>
+  <script src="/tienda.js"></script>
+  <script src="/scripts.js"></script>
 </body>
 </html>

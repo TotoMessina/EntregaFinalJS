@@ -9,15 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-    <!-- Tu contenido HTML -->
+<body class="light">
     <header id="miHeader">
-        <h1>facebook</h1>
+        <h1>Configuracion</h1>
     </header>
-
+    <main>
+        <form id="configForm" onsubmit="guardarConfiguracion(); return false;">
+            <div class="alineado">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <div class="alineado">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
+            </div>
+            <div class="alineado">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="alineado">
+                <label for="tema">Tema:</label>
+                <select id="tema" name="tema">
+                    <option value="light">Claro</option>
+                    <option value="dark">Oscuro</option>
+                </select>
+            </div>
+            <button type="submit" class="config-button">Guardar Configuración</button>
+        </form>
+    </main>
     <footer>
         <button onclick="window.location.href = 'tienda.html';"><img src="/img/marketplace.png" alt="Carro Marketplace"></button>
-        <button onclick="window.location.href = 'inicio.html';" class="activo"><img src="/img/home-act.png" alt="Inicio"></button>
-        <button onclick="window.location.href = 'configuracion.html';"><img src="/img/menu.png" alt="Menu"></button>
+        <button onclick="window.location.href = 'inicio.html';"><img src="/img/home.png" alt="Inicio"></button>
+        <button onclick="window.location.href = 'configuracion.html';" class="activo"><img src="/img/menu-act.png" alt="Menu"></button>
     </footer>
+    <script src="../scripts.js"></script>
 </body>
